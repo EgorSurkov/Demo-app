@@ -1,0 +1,215 @@
+<apex:page id="YandexOffer" controller="YandexEdaOfferPageController">
+
+    <style>
+.offer-text{
+    margin-left: 430px;
+    text-align: left;
+    padding-top: 5px;
+}
+.offer1{
+    font-weight: bold;
+    color: blue;
+}
+.a7{
+    font-weight: bold;
+    color: blue;
+}
+.a19{
+    font-weight: bold;
+    color: blue;
+}
+.usloviya{
+    font-size: 13px;
+    font-weight: bold;
+}
+.stoimost{
+    font-size: 9px;
+}
+.border {
+    justify-content: center;
+    display: flex;
+    background-color: #FFE033;
+        }
+.border-menu {
+    padding-top: 50px;
+    justify-content: center;
+    display: flex;
+    font-weight: normal;
+    text-align: left;
+}
+.container {
+    display: grid;
+}
+.h1 {
+    font-size: 20px;
+}
+.subcontainer {
+    font-family: Helvetica, sans-serif;
+}
+.subcontainer tr:nth-child(odd){
+    font-size: 8px;
+        }
+
+.knopka{
+    margin-left: 500px;
+    margin-top: 60px;
+}
+.bottom-chek{
+    margin-top: 20px;
+    margin-left: 300px;
+}
+.uslugi{
+    font-weight: bold;
+    color: blue;
+
+}
+.footer{
+    margin-left: 510px;
+    margin-top: 60px;
+}
+    </style>
+    <apex:form>
+
+            <div class="border">
+                <img class="img" src="https://page-data-1203-dev-ed--c.visualforce.com/resource/1568618876000/Offer?" width="1240" height="420"  alt=""/><br/>
+            </div>
+            <apex:pageBlock>
+                <table class="text-container">
+                    <div class="offer-text">
+                        <p>Для начала работы с сервисом, пожалуйста,<br/>
+                         ознакомьтесь и согласитесь с условиями Оферты,<br/>
+                         а также внесите реквизиты. Договор будет<br/>
+                         считаться подписанным после оплаты платежного<br/>
+                          поручения. Платежное поручение будет<br/>
+                        отправлено на электронную почту после проверки<br/>
+                         заполненной информации.<br/></p>
+                        <p class="offer1">Оферта на оказание услуг "Яндекс.Еда"</p><br/>
+                        <p class="usloviya">Ознакомьтесь с коммерческими<br/> условиями</p><br/>
+                        <p>1. Стоимость Услуг "Яндекс.Еда" в отношении одного<br/>
+                         оформленного Пользователем Заказа при выборе<br/>
+                        Пользователем способа оплаты наличным<br/>
+                        платежом в случае, если доставка Товара<br/>
+                        осуществляется Доставщиком - <span class="a7">7.0%</span>(в том числе<br/>
+                        НДС) от общей стоимости Заказа</p><br/>
+                         <p>2. Стоимость Услуг "Яндекс.Еда" в отношении одного<br/>
+                        оформленного Пользователем Заказа при выборе<br/>
+                        Пользователем способа оплаты безналичным<br/>
+                         платежом в случае, если доставка Товара<br/>
+                         осуществляется Доставщиком - <span class="a19">19.0%</span> (в том числе<br/>
+                        НДС) от общей стоимости Заказа.</p><br/>
+                        <p class="stoimost">Стоимость Услуг "Яндекс.Еда", определяемая в соответствии с пп.<br/>
+                        1.2 выше, включает вознаграждение за исполнение Поручения и<br/>
+                        Поручительство в соответствии с Офертой.</p>
+                </div>
+                </table>
+                <div class="border-menu">
+                    <table class="container">
+                        <thead>
+                        <tr>
+                            <th>
+                                <span class="h1">Внесите реквизиты</span>
+                            </th>
+                            <th>
+                                <!--пустое поле-->
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td><apex:outputLabel for="RestName" value="Название ресторана"/></td>
+                            <td><apex:inputField value="{!offer.RestName__c}" id="RestName"/></td>
+                        </tr>
+                        <tr>
+                            <td><apex:outputLabel for="AccountFullName" value="Полное название предприятия"/></td>
+                            <td><apex:inputField id="AccountFullName" value="{!offer.AccountFullName__c}"/></td>
+                        </tr>
+                        <tr>
+                            <td> <apex:outputLabel value="Юридический адрес" for="the"/> </td>
+                            <td>
+                                <table class="subcontainer" >
+                                    <tr><td><apex:outputLabel value="Город" for="theCity"/> </td>
+                                        <td><apex:outputLabel value="Индекс" for="theIndex"/> </td>
+                                    </tr>
+                                    <tr><td><apex:inputField value="{!offer.City__c}" id="theCity"/></td>
+                                        <td><apex:inputField value="{!offer.Index__c}" id="theIndex"/></td>
+                                    </tr>
+                                    <tr><td><apex:outputLabel value="Улица" for="theStreet"/> </td>
+                                        <td><apex:outputLabel value="Дом, офис, кв." for="theApartments"/></td>
+                                    </tr>
+                                    <tr><td><apex:inputField value="{!offer.Street__c}" id="theStreet"/></td>
+                                        <td><apex:inputField value="{!offer.Apartments__c}" id="theApartments"/></td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><apex:outputLabel for="OGRN" value="ОГРН"/></td>
+                            <td><apex:inputField id="OGRN" value="{!offer.OGRN__c}"/></td>
+                        </tr>
+                        <tr>
+                            <td><apex:outputLabel for="INN" value="ИНН"/></td>
+                            <td><apex:inputField id="INN" value="{!offer.INN__c}"/></td>
+                        </tr>
+                        <tr>
+                            <td><apex:outputLabel for="KPP" value="КПП"/></td>
+                            <td><apex:inputField id="KPP" value="{!offer.KPP__c}"/></td>
+                        </tr>
+                        <tr>
+                            <td><apex:outputLabel for="NDS" value="НДС"/></td>
+                            <td><apex:inputField id="NDS" value="{!offer.NDS__c}"/></td>
+                        </tr>
+                        <tr>
+                            <td><apex:outputLabel for="BankName" value="Название Банка"/></td>
+                            <td><apex:inputField id="BankName" value="{!offer.BankName__c}"/></td>
+                        </tr>
+                        <tr>
+                            <td><apex:outputLabel for="CheckingAcc" value="Расчетный счет"/></td>
+                            <td><apex:inputField id="CheckingAcc" value="{!offer.CheckingAcc__c}"/></td>
+                        </tr>
+                        <tr>
+                            <td><apex:outputLabel for="BIK" value="БИК Банка"/></td>
+                            <td><apex:inputField id="BIK" value="{!offer.BankBIK__c}"/></td>
+                        </tr>
+                        <tr>
+                            <td><apex:outputLabel for="CorAcc" value="Кор. Счет"/></td>
+                            <td><apex:inputField id="CorAcc" value="{!offer.CorAcc__c}"/></td>
+                        </tr>
+                        <tr>
+                            <td><apex:outputLabel for="Accounting_Phone" value="Телефон бухгалтерии"/></td>
+                            <td><apex:inputField id="Accounting_Phone" value="{!offer.Accounting_Phone__c}"/></td>
+                        </tr>
+                        <tr>
+                            <td><apex:outputLabel for="AccountingEmail" value="Электронная почта бухгалтерии"/></td>
+                            <td><apex:inputField id="AccountingEmail" value="{!offer.AccountingEmail__c}"/></td>
+                        </tr>
+                        <tr>
+                            <td><apex:outputLabel for="Website" value="Сайт ресторана"/></td>
+                            <td><apex:inputField id="Website" value="{!offer.Website__c}"/></td>
+                        </tr>
+                        <tr>
+                            <td><apex:outputLabel for="SignerName" value="Имя подписанта"/></td>
+                            <td><apex:inputField id="SignerName" value="{!offer.SignerName__c}"/></td>
+                        </tr>
+                        <tr>
+                            <td><apex:outputLabel for="SignerPosition" value="Должность подписанта"/></td>
+                            <td><apex:inputField id="SignerPosition" value="{!offer.SignerPosition__c}"/></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="bottom">
+                    <input class="bottom-chek" id="00N4E000004VaFM" name="00N4E000004VaFM" type="checkbox" value="1" required="required"/>
+                  <span> Подтверждаю свое ознакомление и соглашаюсь с условиями<span class="uslugi"> Оферты на оказание услуг "Яндекс.Еда"</span></span><br/>
+                    <input class="knopka" type="submit" name="submit" style="width:120px; height:28px; border:1px solid lightgrey; background:#ffe033;" />
+                </div>
+                 <div class="footer">© 2019 Яндекс</div>
+
+
+
+
+            </apex:pageBlock>
+
+        </apex:form>
+</apex:page>
+
